@@ -38,10 +38,9 @@ init:
         $context.session.lastState = $context.currentState;
         $context.session.lastActiveTime = $jsapi.currentTime();
         
-        if (checkState($context.currentState)) { 
-            $context.session.stateCounter = 0;
-            $context.session.stateCounterInARow = 0;
-        }
+        $context.session.stateCounter = 0;
+        $context.session.stateCounterInARow = 0;
+        
     });
 
 theme: /
