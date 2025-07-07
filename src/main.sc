@@ -136,7 +136,7 @@ theme: /
                 $session.stateCounterInARow ++;
             if: $session.stateCounterInARow < 3
                 script:
-                    if ($parseTree["_duckling.number"]) 
+                    if ($parseTree["_duckling.number"] < 0) 
                     {
                         $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидный номер заказа.");
                     }
