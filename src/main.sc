@@ -7,6 +7,8 @@ require: common.js
  
 require: funcs.js    
 require: whatToChange.sc
+require: treckOrder.sc
+require: chooseDocuments.sc
 
 init:
     var SESSION_TIMEOUT_MS = 86400000; // Один день
@@ -105,54 +107,6 @@ theme: /
             "Другой вопрос" -> /OtherQuestions
         event: noMatch || toState = "./"
 
-    state: TreckOrder
-        random: 
-            a: Укажите, пожалуйста, номер вашего заказа
-            a: Подскажите номер вашего заказа
-            a: Скажите, пожалуйста, какой номер у вашего заказа?
-        intent: /123 || toState = "/TreckOrder/LateOrder"
-        intent: /234 || toState = "/TreckOrder/OrderArrived"
-        intent: /345 || toState = "/TreckOrder/OrderInProgress"
-        
-        state: LateOrder
-            a: Вижу, что ваш заказ задерживается из-за проблем на сортировочном пункте.
-                Нам очень жаль, что первоначальная дата доставки сдвинулась, но мы постараемся привезти ваш заказ 25.07.2025 с 10:00 до 18:00. 
-                Благодарим вас за ожидание и понимание! || htmlEnabled = true, html = "Вижу, что ваш заказ задерживается из-за проблем на сортировочном пункте.<br><br>Нам очень жаль, что первоначальная дата доставки сдвинулась, но мы постараемся привезти ваш заказ 25.07.2025 с 10:00 до 18:00.&nbsp;<br><br>Благодарим вас за ожидание и понимание!"
-            go!: /SomethingElse
-            
-        state: OrderArrived
-            a: Текущий статус вашего заказа "Прибыл в пункт выдачи".
-                Вы можете забрать его по адресу: г Санкт-Петербург, пр-кт Лиговский, дом 101, стр. 
-                Время работы пункта: 10:00-22:00.
-                Будем ждать вас"
-            go!: /SomethingElse
-            
-        state: OrderInProgress
-            a: Текущий статус вашего заказа "В пути".
-                Ориентировочная дата прибытия заказа 19.07.2025  в пункт выдачи по адресу: г Санкт-Петербург, ул Белы Куна, дом 16, корп. 4, стр. Б.
-                Когда заказ поступит в пункт выдачи, вы получите уведомление!
-            go!: /SomethingElse
-            
-        state: LocalCatchAll || noContext = true
-            event: noMatch
-            script:
-                $session.stateCounterInARow ++;
-            if: $session.stateCounterInARow < 3
-                script:
-                    var answers = ["Извините, не совсем понял вас. Какой номер заказа?",
-                            "К сожалению, не понял вас. Укажите валидный номер заказа."];
-                    var randomAnswer = answers[$reactions.random(answers.length)];
-                        $reactions.answer(randomAnswer);
-            else: 
-                go!:  /SomethingElse
-
-    state: ChangeOrder
-        random: 
-            a: Укажите, пожалуйста, номер вашего заказа
-            a: Подскажите номер вашего заказа
-            a: Скажите, пожалуйста, какой номер у вашего заказа?
-        go!: /WhatToChange
-
     state: Partnership
         a: Мы рады, что вы хотели бы с нами посотрудничать! Пожалуйста, опишите ваше предложение в одном сообщении!
         go!: /PartnershipReqested
@@ -173,30 +127,6 @@ theme: /
             destination = 
             noOperatorsOnlineState = 
             dialogCompletedState = 
-
-    state: ChooseDocuments
-        a: Подскажите, какие именно документы вам нужны?
-        buttons:
-            "Накладная" -> /ChooseDocuments/Documents
-            "Акт сверки" -> /ChooseDocuments/Documents
-            "Счет-фактура" -> /ChooseDocuments/Documents
-            "Закрывающие" -> /ChooseDocuments/Documents
-            "Все документы" -> /ChooseDocuments/Documents
-            
-        state: Documents
-            event: noMatch || toState = "./"
-            a: Вам нужны оригиналы или электронная версия документов?
-            buttons:
-                "Оригиналы" -> /SendDocuments
-                "Электронные" -> /FindDocuments
-
-    state: SendDocuments
-        a: По какому адресу выслать указанные документы?
-        go!: /AdressToSend
-
-    state: FindDocuments
-        a: Электронные документы вы можете скачать в личном кабинете в разделе "Мои документы"
-        go!: /SomethingElse
 
     state: AdressToSend
         a: Отлично, ожидайте заказное письмо с оригиналами документов в течение семи рабочих дней!
@@ -219,10 +149,4 @@ theme: /
                 Они свяжутся с вами в течение недели, если предложение нас заинтересует!
         go!: /SomethingElse
 
-    state: NewReciever
-        a: Пожалуйста, введите ФИО нового получателя
-        go!: /ChangesDone
-
-    state: ChangesDone
-        a: Отлично, теперь получателем по заказу №123 является Иванов Иван Иванович
-        go!: /SomethingElse
+    

@@ -1,4 +1,11 @@
 theme: /
+    state: ChangeOrder
+        random: 
+            a: Укажите, пожалуйста, номер вашего заказа
+            a: Подскажите номер вашего заказа
+            a: Скажите, пожалуйста, какой номер у вашего заказа?
+        go!: /WhatToChange
+    
     state: WhatToChange
         a: Вот что мне удалось найти по вашему заказу №123:
            Доставка запланирована на 01.08.2025 в пункт выдачи по адресу: г Санкт-Петербург, ул Захарьевская, дом 25, корп. А, пав. БЦ ’’Z-25’.
@@ -81,8 +88,13 @@ theme: /
                     $reactions.answer("Изменили адрес доставки на " + $session.deliveryAddress);
                 go!: /SomethingElse
                 
-        state: LocalCatchAll
-            event: noMatch
-            script: 
-                $reactions.transition("/SomethingElse");
+        state: NewReciever
+            a: Пожалуйста, введите ФИО нового получателя
+            
+            state: ChangesDone
+                event: noMatch
+                script:
+                    $session.newReciever = $request.query;
+                a: Отлично, теперь получателем по заказу №123 является {{$session.newReciever}}.
+                go!: /SomethingElse
                 
