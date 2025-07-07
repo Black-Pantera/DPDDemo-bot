@@ -34,8 +34,8 @@ theme: /
                             var randomAnswer = answers[$reactions.random(answers.length)];
                             $reactions.answer(randomAnswer);
                             }
-            else:
-                script: 
+                else:
+                    script: 
                         $reactions.transition("/SomethingElse");
                     
         state: DeliveryDate
