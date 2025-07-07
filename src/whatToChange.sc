@@ -40,7 +40,7 @@ theme: /
                         $reactions.transition("/SomethingElse");
                     
         state: DeliveryDate
-            a: Укажите дату доставки.
+            a: Укажите желаемую дату доставки.
             
             state: Date
                 q: * @duckling.date *
