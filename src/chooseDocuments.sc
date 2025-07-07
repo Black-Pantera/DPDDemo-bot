@@ -17,7 +17,13 @@ theme: /
 
     state: SendDocuments
         a: По какому адресу выслать указанные документы?
-        go!: /AdressToSend
+        
+        state: AddressToSend
+        event: noMatch
+            script:
+                $session.addressToSendDocuments = $request.query;
+            a: Отлично, ожидайте заказное письмо с оригиналами документов по адресу {{$session.addressToSendDocuments}} в течение семи рабочих дней!
+            go!: /SomethingElse
 
     state: FindDocuments
         a: Электронные документы вы можете скачать в личном кабинете в разделе "Мои документы"

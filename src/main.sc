@@ -108,10 +108,6 @@ theme: /
             "Другой вопрос" -> /OtherQuestions
         event: noMatch || toState = "./"
 
-    state: Partnership
-        a: Мы рады, что вы хотели бы с нами посотрудничать! Пожалуйста, опишите ваше предложение в одном сообщении!
-        go!: /PartnershipReqested
-
     state: OtherQuestions
         TransferToOperator: 
             titleOfCloseButton = 
@@ -129,10 +125,6 @@ theme: /
             noOperatorsOnlineState = 
             dialogCompletedState = 
 
-    state: AdressToSend
-        a: Отлично, ожидайте заказное письмо с оригиналами документов в течение семи рабочих дней!
-        go!: /SomethingElse
-
     state: SomethingElse
         random: 
             a: Могу ли я помочь вам чем-то еще?
@@ -145,9 +137,5 @@ theme: /
             "Другой вопрос" -> /OtherQuestions
             "Я все узнал" -> /Bye
 
-    state: PartnershipReqested
-        a: Отлично, я передал ваше предложение коллегам!
-           Они свяжутся с вами в течение недели, если предложение нас заинтересует!
-        go!: /SomethingElse
-
+   
     
