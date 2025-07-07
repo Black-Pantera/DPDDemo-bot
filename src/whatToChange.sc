@@ -49,7 +49,7 @@ theme: /
                         $session.deliveryDate = getUserDate($parseTree["_duckling.date"]); 
                     }
                     
-             state: LocalCatchAll
+            state: LocalCatchAll
                 event: noMatch
                 script:
                     $session.stateCounterInARow ++
@@ -72,3 +72,8 @@ theme: /
             a: Укажите адресс доставки.
             script:
                 session.deliveryAddress = $request.query;
+                
+        state: LocalCatchAll
+            event: noMatch
+            script: 
+                $reactions.transition("/SomethingElse");
