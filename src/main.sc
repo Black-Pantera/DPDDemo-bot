@@ -136,17 +136,10 @@ theme: /
                 $session.stateCounterInARow ++;
             if: $session.stateCounterInARow < 3
                 script:
-                    if ($parseTree["_duckling.number"] < 0) 
-                    {
-                        $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите валидный номер заказа.");
-                    }
-                    else 
-                    {
-                        var answers = ["Извините, не совсем понял вас. Какой номер заказа?",
+                    var answers = ["Извините, не совсем понял вас. Какой номер заказа?",
                             "К сожалению, не понял вас. Какой номер заказа?"];
-                        var randomAnswer = answers[$reactions.random(answers.length)];
+                    var randomAnswer = answers[$reactions.random(answers.length)];
                         $reactions.answer(randomAnswer);
-                    }
             else: 
                 go!:  /SomethingElse
 
