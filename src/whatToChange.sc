@@ -50,6 +50,7 @@ theme: /
                         $temp.userFormatDate = moment($session.deliveryDate).format('LL');
                         $reactions.answer("Изменили дату доставки на "+$temp.userFormatDate);
                     }
+                go!: /SomethingElse
                     
             state: LocalCatchAll
                 event: noMatch
