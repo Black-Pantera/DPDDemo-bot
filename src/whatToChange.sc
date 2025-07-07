@@ -47,7 +47,8 @@ theme: /
                 script:
                     if ($parseTree["_duckling.date"]) {
                         $session.deliveryDate = getUserDate($parseTree["_duckling.date"]); 
-                        $reactions.answer("Изменили дату доставки на "+$session.deliveryDate);
+                        $temp.userFormatDate = moment($session.deliveryDate).format('LL');
+                        $reactions.answer("Изменили дату доставки на "+$temp.userFormatDate);
                     }
                     
             state: LocalCatchAll
