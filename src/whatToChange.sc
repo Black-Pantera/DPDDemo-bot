@@ -18,6 +18,7 @@ theme: /
                     $session.deliveryTime = $parseTree["_duckling.time"];
                     $temp.time = $session.deliveryTime;
                 a: Время доставки перенесено на {{$temp.time.hour}}:{{$temp.time.minute}}.
+                go!: /SomethingElse
                     
             state: LocalCatchAll
                 event: noMatch
