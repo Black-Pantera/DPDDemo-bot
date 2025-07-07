@@ -4,7 +4,8 @@ require: dateTime/moment.min.js
     module = sys.zb-common   
 require: common.js
     module = sys.zb-common
-    
+ 
+require: funcs.js    
 require: whatToChange.sc
 
 init:
