@@ -75,6 +75,7 @@ theme: /
             a: Укажите адресс доставки.
             
             state: Comment
+                event: noMatch
                 script:
                     $session.deliveryAddress = $request.query;
                     $reactions.answer("Изменили адрес доставки на " + $session.deliveryAddress);
