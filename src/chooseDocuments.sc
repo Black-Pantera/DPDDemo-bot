@@ -19,7 +19,7 @@ theme: /
         a: По какому адресу выслать указанные документы?
         
         state: AddressToSend
-        event: noMatch
+            event: noMatch
             script:
                 $session.addressToSendDocuments = $request.query;
             a: Отлично, ожидайте заказное письмо с оригиналами документов по адресу {{$session.addressToSendDocuments}} в течение семи рабочих дней!
