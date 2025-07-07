@@ -137,7 +137,7 @@ theme: /
             if: $session.stateCounterInARow < 3
                 script:
                     var answers = ["Извините, не совсем понял вас. Какой номер заказа?",
-                            "К сожалению, не понял вас. Какой номер заказа?"];
+                            "К сожалению, не понял вас. Укажите валидный номер заказа."];
                     var randomAnswer = answers[$reactions.random(answers.length)];
                         $reactions.answer(randomAnswer);
             else: 
