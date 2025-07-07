@@ -143,13 +143,6 @@ theme: /
             else: 
                 go!:  /SomethingElse
 
-    state: Documents
-        event: noMatch || toState = "./"
-        a: Вам нужны оригиналы или электронная версия документов?
-        buttons:
-            "Оригиналы" -> /SendDocuments
-            "Электронные" -> /FindDocuments
-
     state: ChangeOrder
         random: 
             a: Укажите, пожалуйста, номер вашего заказа
@@ -181,11 +174,18 @@ theme: /
     state: ChooseDocuments
         a: Подскажите, какие именно документы вам нужны?
         buttons:
-            "Накладная"
-            "Акт сверки" -> /Documents
-            "Счет-фактура" -> /Documents
-            "Закрывающие" -> /Documents
-            "Все документы" -> /Documents
+            "Накладная" -> /ChooseDocuments/Documents
+            "Акт сверки" -> /ChooseDocuments/Documents
+            "Счет-фактура" -> /ChooseDocuments/Documents
+            "Закрывающие" -> /ChooseDocuments/Documents
+            "Все документы" -> /ChooseDocuments/Documents
+            
+        state: Documents
+            event: noMatch || toState = "./"
+            a: Вам нужны оригиналы или электронная версия документов?
+            buttons:
+                "Оригиналы" -> /SendDocuments
+                "Электронные" -> /FindDocuments
 
     state: SendDocuments
         a: По какому адресу выслать указанные документы?
