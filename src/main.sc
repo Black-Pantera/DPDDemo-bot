@@ -1,7 +1,7 @@
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
-theme: /
-
+  
+init:
     bind("onAnyError", function($context) {
         var answers = [
             "Извините, произошла техническая ошибка. Специалисты обязательно изучат её и возьмут в работу. Пожалуйста, напишите в чат позже.",
@@ -12,6 +12,8 @@ theme: /
            
         $reactions.buttons({ text: "В главное меню", transition: "/Start" })
     }); 
+
+theme: /
 
     state: Start
         q!: $regex</start>
