@@ -10,21 +10,20 @@ theme: /
             "Получателя" -> /WhatToChange/NewReciever
             
         state: DeliveryTime
-            a: Укажите время доставки.
+            a: Укажите желаемое время доставки.
             
             state: Time
                 q: * @duckling.time *
                 script:
-                
-                    if ($parseTree["_duckling.time"]) {
-                        $session.deliveryTime =$parseTree["_duckling.time"]; 
-                    }
+                    $session.deliveryTime = $parseTree["_duckling.time"];
+                    $temp.time = $session.deliveryTime;
+                a: Время доставки перенесено на {{$temp.time.hour}}:{{$temp.time.minute}}.
                     
             state: LocalCatchAll
-            event: noMatch
-            script:
-                $session.stateCounterInARow ++
-            if: $session.stateCounterInARow < 3
+                event: noMatch
+                script:
+                    $session.stateCounterInARow ++
+                if: $session.stateCounterInARow < 3
                     script:
                         if ($parseTree["_duckling.time"]) {
                             $reactions.answer("К сожалению, не могу принять такой ответ. Пожалуйста, введите корректное время.");
