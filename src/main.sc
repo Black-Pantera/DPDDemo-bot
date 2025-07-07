@@ -9,6 +9,7 @@ require: funcs.js
 require: whatToChange.sc
 require: treckOrder.sc
 require: chooseDocuments.sc
+require: partnership.sc
 
 init:
     var SESSION_TIMEOUT_MS = 86400000; // Один день
