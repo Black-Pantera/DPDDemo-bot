@@ -2,7 +2,7 @@ require: slotfilling/slotFilling.sc
   module = sys.zb-common
   
 init:
-    
+    var SESSION_TIMEOUT_MS = 86400000; // Один день
     
     bind("onAnyError", function($context) {
         var answers = [
@@ -14,6 +14,31 @@ init:
            
         $reactions.buttons({ text: "В главное меню", transition: "/Start" })
     }); 
+    
+    bind("preProcess", function($context) {
+        if (!$context.session.stateCounter) {
+            $context.session.stateCounter = 0;
+        }
+        
+        if (!$context.session.stateCounterInARow) {
+            $context.session.stateCounterInARow = 0;
+        }
+        
+        if ($context.session.lastActiveTime) {
+            var interval = $jsapi.currentTime() - $context.session.lastActiveTime;
+            if (interval > SESSION_TIMEOUT_MS) $jsapi.startSession();
+        }
+    });
+        
+    bind("postProcess", function($context) {
+        $context.session.lastState = $context.currentState;
+        $context.session.lastActiveTime = $jsapi.currentTime();
+        
+        if (checkState($context.currentState)) { 
+            $context.session.stateCounter = 0;
+            $context.session.stateCounterInARow = 0;
+        }
+    });
 
 theme: /
     
