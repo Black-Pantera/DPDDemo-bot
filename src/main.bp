@@ -1,0 +1,113 @@
+{
+  "positions" : [ {
+    "id" : "/Start",
+    "x" : 275,
+    "y" : 638
+  }, {
+    "id" : "/Hello",
+    "x" : 275,
+    "y" : 1198
+  }, {
+    "id" : "/Bye",
+    "x" : 4271,
+    "y" : 1247
+  }, {
+    "id" : "/NoMatch",
+    "x" : 275,
+    "y" : 2292
+  }, {
+    "id" : "/Match",
+    "x" : 275,
+    "y" : 2842
+  }, {
+    "id" : "/HowCanIHelp",
+    "name" : "HowCanIHelp",
+    "x" : 660,
+    "y" : 648
+  }, {
+    "id" : "/TreckOrder",
+    "name" : "TreckOrder",
+    "x" : 1230,
+    "y" : -211
+  }, {
+    "id" : "/Documents",
+    "name" : "Documents",
+    "x" : 1663,
+    "y" : 872
+  }, {
+    "id" : "/ChangeOrder",
+    "name" : "ChangeOrder",
+    "x" : 1197,
+    "y" : 1977
+  }, {
+    "id" : "/Partnership",
+    "name" : "Partnership",
+    "x" : 1197,
+    "y" : 2629
+  }, {
+    "id" : "/OtherQuestions",
+    "name" : "OtherQuestions",
+    "x" : 1161,
+    "y" : 3100
+  }, {
+    "id" : "/ChooseDocuments",
+    "name" : "ChooseDocuments",
+    "x" : 1208,
+    "y" : 866
+  }, {
+    "id" : "/SendDocuments",
+    "name" : "SendDocuments",
+    "x" : 2061,
+    "y" : 865
+  }, {
+    "id" : "/FindDocuments",
+    "name" : "FindDocuments",
+    "x" : 2052,
+    "y" : 1366
+  }, {
+    "id" : "/AdressToSend",
+    "name" : "AdressToSend",
+    "x" : 2486,
+    "y" : 852
+  }, {
+    "id" : "/SomethingElse",
+    "name" : "SomethingElse",
+    "x" : 3559,
+    "y" : 792
+  }, {
+    "id" : "/LateOrder",
+    "name" : "LateOrder",
+    "x" : 1772,
+    "y" : -627
+  }, {
+    "id" : "/OrderArrived",
+    "name" : "OrderInProgress",
+    "x" : 1771,
+    "y" : -202
+  }, {
+    "id" : "/OrderInProgress",
+    "name" : "OrderInProgress",
+    "x" : 1763,
+    "y" : 279
+  }, {
+    "id" : "/PartnershipReqested",
+    "name" : "PartnershipReqested",
+    "x" : 1740,
+    "y" : 2618
+  }, {
+    "id" : "/WhatToChange",
+    "name" : "WhatToChange",
+    "x" : 1702,
+    "y" : 1998
+  }, {
+    "id" : "/NewReciever",
+    "name" : "NewAdress",
+    "x" : 2195,
+    "y" : 1989
+  }, {
+    "id" : "/ChangesDone",
+    "name" : "ChangesDone",
+    "x" : 2774,
+    "y" : 1988
+  } ]
+}
