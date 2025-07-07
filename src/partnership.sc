@@ -1,7 +1,7 @@
 theme: /
     state: Partnership
         a: Мы рады, что вы хотели бы с нами посотрудничать! Пожалуйста, опишите ваше предложение в одном сообщении!
-        go!: /PartnershipReqested
+        go!: /Partnership/PartnershipReqested
         
         state: PartnershipReqested
             event: noMatch
