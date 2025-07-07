@@ -147,8 +147,8 @@ theme: /
                         var randomAnswer = answers[$reactions.random(answers.length)];
                         $reactions.answer(randomAnswer);
                     }
-                else: 
-                    go!:  /SomethingElse
+            else: 
+                go!:  /SomethingElse
 
     state: Documents
         event: noMatch || toState = "./"
