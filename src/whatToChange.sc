@@ -74,9 +74,12 @@ theme: /
         state: DeliveryAddress
             a: Укажите адресс доставки.
             script:
-                session.deliveryAddress = $request.query;
+                $session.deliveryAddress = $request.query;
+                $reactions.answer("Изменили адрес доставки на " + $session.deliveryAddress);
+            go!: /SomethingElse
                 
         state: LocalCatchAll
             event: noMatch
             script: 
                 $reactions.transition("/SomethingElse");
+                
