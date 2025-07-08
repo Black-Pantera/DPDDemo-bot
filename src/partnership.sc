@@ -6,6 +6,6 @@ theme: /
             event: noMatch
             script:
                 $session.partnershipReqested = $request.query;
-            a: Отлично, я передал ваше предложение коллегам!
+            a: Отлично, я передал ваше предложение '{{$session.partnershipReqested}}' коллегам!
                Они свяжутся с вами в течение недели, если предложение нас заинтересует!
             go!: /SomethingElse
