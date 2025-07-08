@@ -124,6 +124,7 @@ theme: /
             destination = 
             noOperatorsOnlineState = 
             dialogCompletedState = 
+        go!: /SomethingElse
 
     state: SomethingElse
         random: 
